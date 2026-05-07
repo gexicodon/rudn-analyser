@@ -1,8 +1,11 @@
 import streamlit as st
-import pandas as pd
+
 from analysis.risk import find_risk_students
 
 st.header("🚨 Студенты группы риска")
+st.set_page_config(
+    page_icon="📊",
+)
 
 
 if "data" not in st.session_state:

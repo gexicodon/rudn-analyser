@@ -1,7 +1,7 @@
 import pandas as pd
 from analysis.risk import find_risk_students
-def generate_insights(df: pd.DataFrame) -> list[str]:
-    insights = []
+def generate_insights(df: pd.DataFrame) -> list[str]: # Функция генерации краткой сводки
+    insights = [] # Возвращает список с краткими сведениями, которые выводятся на странице "Статистика"
 
 
     corr = df["attendance"].corr(df["score"])

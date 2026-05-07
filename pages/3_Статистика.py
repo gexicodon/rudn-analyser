@@ -5,7 +5,9 @@ from analysis.insights import generate_insights
 import numpy as np
 
 st.header("📊 Статистика")
-
+st.set_page_config(
+    page_icon="📊",
+)
 
 if "data" not in st.session_state:
     st.warning("Сначала загрузите CSV-файл")
@@ -56,15 +58,15 @@ score_dist = df["score"].value_counts().sort_index()
 st.bar_chart(score_dist)
 
 
-st.subheader("Корреляция показателей")
+st.subheader("Корреляция показателей") # Заголовок
 
 numeric_cols = ["score", "attendance"]
-corr_matrix = df[numeric_cols].corr()
+corr_matrix = df[numeric_cols].corr() # Расчёт попарной корреляцией с использованием df.corr() из библиотеки pandas
 
 fig, ax = plt.subplots(figsize=(4, 3))
 im = ax.imshow(corr_matrix, vmin=-1, vmax=1)
 
-ax.set_xticks(range(len(numeric_cols)))
+ax.set_xticks(range(len(numeric_cols))) # Добавление делений на осях
 ax.set_yticks(range(len(numeric_cols)))
 ax.set_xticklabels(numeric_cols)
 ax.set_yticklabels(numeric_cols)
